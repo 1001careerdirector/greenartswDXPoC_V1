@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>교육운영 DX/AX PoC</title>
+  <style>
+    :root {
+      --bg: #f4f7f4;
+      --ink: #14221d;
+      --muted: #5d6b66;
+      --line: rgba(20, 34, 29, 0.12);
+      --glass: rgba(255, 255, 255, 0.74);
+      --green: #1d6f5f;
+      --blue: #255f9f;
+      --gold: #b97a17;
+      --shadow: 0 18px 50px rgba(27, 45, 40, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+      color: var(--ink);
+      background:
+        linear-gradient(135deg, rgba(29, 111, 95, 0.13), transparent 28%),
+        linear-gradient(315deg, rgba(37, 95, 159, 0.16), transparent 30%),
+        var(--bg);
+    }
+
+    body {
+      min-height: 100vh;
+      padding: clamp(16px, 3vw, 32px);
+    }
+
+    .stage {
+      width: min(1180px, 100%);
+      min-height: calc(100vh - clamp(32px, 6vw, 64px));
+      margin: 0 auto;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      gap: 14px;
+    }
+
+    .topbar,
+    .viewer {
+      border: 1px solid var(--line);
+      background: var(--glass);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      border-radius: 8px;
+      padding: 16px;
+      display: grid;
+      grid-template-columns: minmax(220px, 1fr) auto;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 4px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0;
+      color: var(--green);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(22px, 3vw, 36px);
+      line-height: 1.18;
+      letter-spacing: 0;
+    }
+
+    .summary {
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: clamp(13px, 1.5vw, 16px);
+      line-height: 1.55;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(120px, 1fr));
+      gap: 8px;
+      min-width: min(520px, 100%);
+    }
+
+    button {
+      appearance: none;
+      min-height: 46px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.66);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 1.35;
+      cursor: pointer;
+      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      border-color: rgba(29, 111, 95, 0.36);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    button[aria-pressed="true"] {
+      color: #ffffff;
+      border-color: transparent;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+    }
+
+    .viewer {
+      position: relative;
+      overflow: hidden;
+      border-radius: 8px;
+      min-height: 620px;
+      display: grid;
+      grid-template-rows: 1fr;
+    }
+
+    .frame-wrap {
+      position: relative;
+      min-height: 560px;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 560px;
+      border: 0;
+      background: #ffffff;
+    }
+
+    .badge {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: #ffffff;
+      background: rgba(20, 34, 29, 0.78);
+      font-size: 12px;
+      font-weight: 800;
+      pointer-events: none;
+    }
+
+    @media (max-width: 860px) {
+      .topbar {
+        grid-template-columns: 1fr;
+      }
+
+      .actions {
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 10px;
+      }
+
+      .stage {
+        min-height: calc(100vh - 20px);
+      }
+
+      .actions {
+        grid-template-columns: 1fr;
+      }
+
+      .viewer,
+      .frame-wrap,
+      iframe {
+        min-height: 520px;
+      }
+
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <section class="topbar" aria-label="DX AX PoC slide controls">
+      <div>
+        <p class="eyebrow">그린컴퓨터아카데미 수원</p>
+        <h1>교육운영 DX/AX PoC</h1>
+      </div>
+
+      <div class="actions" role="group" aria-label="PoC embed buttons">
+        <button type="button" data-key="sc" aria-pressed="true">통합 스케줄 대시보드</button>
+        <button type="button" data-key="test" aria-pressed="false">현장평가준비 진척도 대시보드</button>
+        <button type="button" data-key="ds" aria-pressed="false">디자인시스템</button>
+      </div>
+    </section>
+
+    <section class="viewer" aria-label="PoC embed viewer">
+      <div class="frame-wrap">
+        <iframe
+          id="pocFrame"
+          title="greenartsw PoC embed"
+          src="https://1001careerdirector.github.io/greenartswSC_V1/"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+        <div class="badge">embed 실행</div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const slides = {
+      test: {
+        title: "현장평가준비 진척도 대시보드",
+        url: "https://1001careerdirector.github.io/greenartswTEST_V1/"
+      },
+      ds: {
+        title: "디자인시스템",
+        url: "https://1001careerdirector.github.io/greenartswDS_V1/"
+      },
+      sc: {
+        title: "통합 스케줄 대시보드",
+        url: "https://1001careerdirector.github.io/greenartswSC_V1/"
+      }
+    };
+
+    const buttons = document.querySelectorAll("button[data-key]");
+    const frame = document.querySelector("#pocFrame");
+
+    function activate(key) {
+      const slide = slides[key];
+      if (!slide) return;
+
+      buttons.forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.key === key));
+      });
+
+      frame.src = slide.url;
+    }
+
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => activate(button.dataset.key));
+    });
+  </script>
+</body>
+</html>
