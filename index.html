@@ -92,11 +92,12 @@
 
   <script>
     document.querySelectorAll(".entry[data-url]").forEach((button) => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
         const url = button.dataset.url;
-        const opened = window.open(url, "_blank", "noopener,noreferrer");
-        if (!opened) {
-          window.location.href = url;
+        const opened = window.open(url, "_blank");
+        if (opened) {
+          opened.opener = null;
         }
       });
     });
