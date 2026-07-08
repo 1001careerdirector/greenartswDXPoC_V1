@@ -25,9 +25,7 @@
 ## Current Screen Decisions
 
 - The DXPoC screen is a single `index.html` page for GitHub Pages.
-- The visible title is `AI 전환기, 교육운영을 다시 설계하다`.
-- The visible subtitle is `그린컴퓨터아카데미 수원 교육운영 DX/AX PoC`.
-- The small top label is `그린컴퓨터아카데미 수원`.
+- No visible title, subtitle, card container, or page background is shown.
 - Button order is:
   1. 통합 스케줄 대시보드
   2. 현장평가준비 진척도 대시보드
@@ -35,6 +33,7 @@
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
 - The screen is now an entry-button hub instead of an embedded viewer.
 - Each button opens the corresponding GitHub Pages project in a new tab.
+- The Google Sites embed should show only three top entry buttons on a transparent background.
 
 ## Operating Rule
 
@@ -57,3 +56,4 @@
 - 2026-07-08: Compressed the DXPoC screen for Google Sites iframe embedding.
 - 2026-07-08: Changed the DXPoC slide screen from nested iframe demos to three project entry buttons.
 - 2026-07-08: Updated the external concept copy to `AI 전환기, 교육운영을 다시 설계하다`.
+- 2026-07-08: Removed visible title, rounded card container, and background; kept only three transparent-embed entry buttons.
