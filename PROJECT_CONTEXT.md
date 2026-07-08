@@ -32,8 +32,8 @@
   2. 현장평가준비 진척도 대시보드
   3. 디자인시스템
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
-- Each button loads the corresponding GitHub Pages project inside the embedded viewer.
-- The screen is optimized for Google Sites iframe embedding with compact spacing and a taller viewer area.
+- The screen is now an entry-button hub instead of an embedded viewer.
+- Each button opens the corresponding GitHub Pages project in a new tab.
 
 ## Operating Rule
 
@@ -54,3 +54,4 @@
 - 2026-07-08: Established `PROJECT_CONTEXT.md` as the standard cross-device project context file.
 - 2026-07-08: Embedded the DXPoC GitHub Pages URL in Google Sites and published the site.
 - 2026-07-08: Compressed the DXPoC screen for Google Sites iframe embedding.
+- 2026-07-08: Changed the DXPoC slide screen from nested iframe demos to three project entry buttons.

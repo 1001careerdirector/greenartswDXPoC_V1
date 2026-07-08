@@ -9,12 +9,12 @@
       --bg: #f4f7f4;
       --ink: #14221d;
       --muted: #5d6b66;
-      --line: rgba(20, 34, 29, 0.12);
-      --glass: rgba(255, 255, 255, 0.74);
+      --line: rgba(20, 34, 29, 0.14);
+      --glass: rgba(255, 255, 255, 0.78);
       --green: #1d6f5f;
       --blue: #255f9f;
-      --gold: #b97a17;
-      --shadow: 0 18px 50px rgba(27, 45, 40, 0.14);
+      --deep: #10243f;
+      --shadow: 0 16px 42px rgba(27, 45, 40, 0.13);
     }
 
     * {
@@ -28,234 +28,132 @@
       font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(135deg, rgba(29, 111, 95, 0.13), transparent 28%),
-        linear-gradient(315deg, rgba(37, 95, 159, 0.16), transparent 30%),
+        linear-gradient(135deg, rgba(29, 111, 95, 0.12), transparent 30%),
+        linear-gradient(315deg, rgba(37, 95, 159, 0.15), transparent 32%),
         var(--bg);
     }
 
     body {
       min-height: 100vh;
       padding: 8px;
+      display: grid;
+      place-items: center;
     }
 
     .stage {
-      width: 100%;
-      min-height: calc(100vh - 16px);
-      margin: 0 auto;
-      display: grid;
-      grid-template-rows: auto 1fr;
-      gap: 8px;
-    }
-
-    .topbar,
-    .viewer {
+      width: min(1120px, 100%);
       border: 1px solid var(--line);
+      border-radius: 8px;
       background: var(--glass);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
+      padding: clamp(14px, 2.4vw, 24px);
     }
 
-    .topbar {
-      border-radius: 6px;
-      padding: 10px 12px;
-      display: grid;
-      grid-template-columns: minmax(200px, 0.7fr) minmax(420px, 1.3fr);
-      gap: 10px;
-      align-items: center;
+    .topline {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
     }
 
     .eyebrow {
-      margin: 0 0 2px;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0;
+      margin: 0 0 3px;
       color: var(--green);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(18px, 2.2vw, 26px);
-      line-height: 1.12;
+      font-size: clamp(24px, 3.2vw, 38px);
+      line-height: 1.1;
       letter-spacing: 0;
     }
 
-    .summary {
-      margin: 8px 0 0;
-      color: var(--muted);
-      font-size: clamp(13px, 1.5vw, 16px);
-      line-height: 1.55;
-    }
-
-    .actions {
+    .entry-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(130px, 1fr));
-      gap: 6px;
-      min-width: 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
     }
 
-    button {
-      appearance: none;
-      min-height: 38px;
-      padding: 7px 10px;
+    .entry {
+      min-height: 92px;
+      padding: 18px;
       border: 1px solid var(--line);
-      border-radius: 6px;
-      color: var(--ink);
-      background: rgba(255, 255, 255, 0.66);
-      font: inherit;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0;
-      line-height: 1.35;
-      cursor: pointer;
-      transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
-    }
-
-    button:hover {
-      transform: translateY(-1px);
-      border-color: rgba(29, 111, 95, 0.36);
-      background: rgba(255, 255, 255, 0.92);
-    }
-
-    button[aria-pressed="true"] {
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #ffffff;
-      border-color: transparent;
       background: linear-gradient(135deg, var(--green), var(--blue));
+      text-align: center;
+      text-decoration: none;
+      font-size: clamp(15px, 1.8vw, 20px);
+      font-weight: 900;
+      line-height: 1.35;
+      box-shadow: 0 10px 24px rgba(20, 34, 29, 0.14);
+      transition: transform 160ms ease, box-shadow 160ms ease, filter 160ms ease;
     }
 
-    .viewer {
-      position: relative;
-      overflow: hidden;
-      border-radius: 6px;
-      height: calc(100vh - 82px);
-      min-height: 500px;
-      display: grid;
-      grid-template-rows: 1fr;
+    .entry:hover,
+    .entry:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(20, 34, 29, 0.2);
+      filter: brightness(1.04);
+      outline: none;
     }
 
-    .frame-wrap {
-      position: relative;
-      height: 100%;
-      min-height: 0;
-      background: rgba(255, 255, 255, 0.5);
+    .entry:nth-child(2) {
+      background: linear-gradient(135deg, #114f8a, #1f6f66);
     }
 
-    iframe {
-      display: block;
-      width: 100%;
-      height: 100%;
-      min-height: 0;
-      border: 0;
-      background: #ffffff;
+    .entry:nth-child(3) {
+      background: linear-gradient(135deg, var(--deep), #245b91);
     }
 
-    .badge {
-      position: absolute;
-      right: 14px;
-      bottom: 14px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      color: #ffffff;
-      background: rgba(20, 34, 29, 0.78);
-      font-size: 12px;
-      font-weight: 800;
-      pointer-events: none;
-    }
-
-    @media (max-width: 860px) {
-      .topbar {
-        grid-template-columns: 1fr;
-      }
-
-      .actions {
-        min-width: 0;
-      }
-    }
-
-    @media (max-width: 560px) {
+    @media (max-width: 720px) {
       body {
         padding: 6px;
+        place-items: stretch;
       }
 
       .stage {
-        min-height: calc(100vh - 12px);
+        display: grid;
+        align-content: center;
       }
 
-      .actions {
+      .topline {
+        display: block;
+      }
+
+      .entry-grid {
         grid-template-columns: 1fr;
       }
 
-      .viewer,
-      .frame-wrap,
-      iframe {
-        min-height: 500px;
+      .entry {
+        min-height: 68px;
       }
-
     }
   </style>
 </head>
 <body>
-  <main class="stage">
-    <section class="topbar" aria-label="DX AX PoC slide controls">
+  <main class="stage" aria-label="교육운영 DX AX PoC 진입 화면">
+    <header class="topline">
       <div>
         <p class="eyebrow">그린컴퓨터아카데미 수원</p>
         <h1>교육운영 DX/AX PoC</h1>
       </div>
+    </header>
 
-      <div class="actions" role="group" aria-label="PoC embed buttons">
-        <button type="button" data-key="sc" aria-pressed="true">통합 스케줄 대시보드</button>
-        <button type="button" data-key="test" aria-pressed="false">현장평가준비 진척도 대시보드</button>
-        <button type="button" data-key="ds" aria-pressed="false">디자인시스템</button>
-      </div>
-    </section>
-
-    <section class="viewer" aria-label="PoC embed viewer">
-      <div class="frame-wrap">
-        <iframe
-          id="pocFrame"
-          title="greenartsw PoC embed"
-          src="https://1001careerdirector.github.io/greenartswSC_V1/"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
-        <div class="badge">embed 실행</div>
-      </div>
-    </section>
+    <nav class="entry-grid" aria-label="PoC 프로젝트 바로가기">
+      <a class="entry" href="https://1001careerdirector.github.io/greenartswSC_V1/" target="_blank" rel="noopener">통합 스케줄 대시보드</a>
+      <a class="entry" href="https://1001careerdirector.github.io/greenartswTEST_V1/" target="_blank" rel="noopener">현장평가준비 진척도 대시보드</a>
+      <a class="entry" href="https://1001careerdirector.github.io/greenartswDS_V1/" target="_blank" rel="noopener">디자인시스템</a>
+    </nav>
   </main>
-
-  <script>
-    const slides = {
-      test: {
-        title: "현장평가준비 진척도 대시보드",
-        url: "https://1001careerdirector.github.io/greenartswTEST_V1/"
-      },
-      ds: {
-        title: "디자인시스템",
-        url: "https://1001careerdirector.github.io/greenartswDS_V1/"
-      },
-      sc: {
-        title: "통합 스케줄 대시보드",
-        url: "https://1001careerdirector.github.io/greenartswSC_V1/"
-      }
-    };
-
-    const buttons = document.querySelectorAll("button[data-key]");
-    const frame = document.querySelector("#pocFrame");
-
-    function activate(key) {
-      const slide = slides[key];
-      if (!slide) return;
-
-      buttons.forEach((button) => {
-        button.setAttribute("aria-pressed", String(button.dataset.key === key));
-      });
-
-      frame.src = slide.url;
-    }
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => activate(button.dataset.key));
-    });
-  </script>
 </body>
 </html>
