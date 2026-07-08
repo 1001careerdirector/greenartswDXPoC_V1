@@ -39,6 +39,12 @@
 - Project1 buttons use a different color level so they read as a lower-level case/project group.
 - The Project1 performance report button opens a DXPoC-owned admin launcher page (`project1-admin.html`) so the hidden 2026biz1 controls can be handled without editing the public 2026biz1 source before company feedback is complete.
 
+## Future Implementation Notes
+
+- Keep the current `project1-admin.html` wrapper approach until company feedback on the public `2026biz1` page is complete.
+- After company feedback is confirmed, move the student/view/theme controls into `2026biz1` as an official Admin mode instead of continuing the wrapper-only workaround.
+- Do not debug or alter the public `2026biz1` source prematurely while company feedback is still pending.
+
 ## Operating Rule
 
 - Use this file as the durable context handoff file for this project.
@@ -65,3 +71,4 @@
 - 2026-07-08: Removed same-frame fallback from button clicks because it could navigate the button hub itself.
 - 2026-07-08: Added two Project1 buttons for `2026biz1` performance report and trainee feedback, with a distinct color level.
 - 2026-07-08: Added `project1-admin.html` as a workaround launcher for student/view/theme controls without modifying the public `2026biz1` page.
+- 2026-07-08: Recorded the future plan to formalize the wrapper controls as a native `2026biz1` Admin mode only after company feedback is complete.
