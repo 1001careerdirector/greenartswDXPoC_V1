@@ -75,4 +75,4 @@
 - 2026-07-08: Added `project1-admin.html` as a workaround launcher for student/view/theme controls without modifying the public `2026biz1` page.
 - 2026-07-08: Recorded the future plan to formalize the wrapper controls as a native `2026biz1` Admin mode only after company feedback is complete.
 - 2026-07-08: Pointed the field-evaluation entry button directly to `greenartswTEST_V1/channel_Dashboard.html` for the Google Drive course-space dashboard view.
-- 2026-07-08: Adjusted the DXPoC hub button strip for Google Sites iframe embedding: removed the tall one-column mobile breakpoint, made button sizing fluid, and switched very narrow screens to a horizontal strip.
+- 2026-07-08: Adjusted the DXPoC hub button strip for Google Sites iframe embedding: removed the tall one-column mobile breakpoint, kept five buttons visible on small screens, and switched to short labels instead of horizontal scrolling.

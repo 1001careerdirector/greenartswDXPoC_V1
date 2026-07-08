@@ -63,6 +63,10 @@
       transition: transform 160ms ease, filter 160ms ease;
     }
 
+    .label-short {
+      display: none;
+    }
+
     .entry:hover,
     .entry:focus-visible {
       transform: translateY(-1px);
@@ -86,30 +90,37 @@
       background: linear-gradient(135deg, #4f5d75, #7a5c2e);
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 640px) {
       .entry-grid {
-        display: flex;
-        overflow-x: auto;
-        overscroll-behavior-x: contain;
-        scroll-snap-type: x proximity;
-        scrollbar-width: thin;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 3px;
       }
 
       .entry {
-        flex: 0 0 min(58vw, 164px);
-        min-height: min(42px, calc(100dvh - 2px));
-        scroll-snap-align: start;
+        min-height: min(34px, calc(100dvh - 2px));
+        padding: 4px 3px;
+        border-radius: 5px;
+        font-size: clamp(9px, 2.25vw, 11px);
+        line-height: 1.05;
+      }
+
+      .label-full {
+        display: none;
+      }
+
+      .label-short {
+        display: inline;
       }
     }
   </style>
 </head>
 <body>
   <nav class="entry-grid" aria-label="PoC 프로젝트 바로가기">
-    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswSC_V1/">통합 스케줄 대시보드</button>
-    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswTEST_V1/channel_Dashboard.html">현장평가준비 진척도 대시보드</button>
-    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswDS_V1/">디자인시스템</button>
-    <button class="entry project1" type="button" data-url="./project1-admin.html">프로젝트1 성과 리포트(Admin)</button>
-    <button class="entry project1" type="button" data-url="https://docs.google.com/spreadsheets/d/1isyMSHjnhS4FmSujLdteEHxoFq3oM1yy44rPNIXZSRI/edit?usp=sharing">프로젝트1 훈련생 피드백</button>
+    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswSC_V1/"><span class="label-full">통합 스케줄 대시보드</span><span class="label-short">스케줄</span></button>
+    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswTEST_V1/channel_Dashboard.html"><span class="label-full">현장평가준비 진척도 대시보드</span><span class="label-short">현장평가</span></button>
+    <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswDS_V1/"><span class="label-full">디자인시스템</span><span class="label-short">디자인</span></button>
+    <button class="entry project1" type="button" data-url="./project1-admin.html"><span class="label-full">프로젝트1 성과 리포트(Admin)</span><span class="label-short">성과리포트</span></button>
+    <button class="entry project1" type="button" data-url="https://docs.google.com/spreadsheets/d/1isyMSHjnhS4FmSujLdteEHxoFq3oM1yy44rPNIXZSRI/edit?usp=sharing"><span class="label-full">프로젝트1 훈련생 피드백</span><span class="label-short">피드백</span></button>
   </nav>
 
   <script>
