@@ -33,7 +33,7 @@
     .entry-grid {
       width: 100%;
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: clamp(4px, 0.8vw, 8px);
       overflow: hidden;
     }
@@ -86,13 +86,17 @@
       background: linear-gradient(135deg, #6b4c9a, #8a6a2a);
     }
 
-    .entry.project1:nth-child(5) {
+    .entry.project1.student {
+      background: linear-gradient(135deg, #3f5d8a, #2e7b68);
+    }
+
+    .entry.project1.feedback {
       background: linear-gradient(135deg, #4f5d75, #7a5c2e);
     }
 
     @media (max-width: 640px) {
       .entry-grid {
-        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
         gap: 3px;
       }
 
@@ -100,7 +104,7 @@
         min-height: min(34px, calc(100dvh - 2px));
         padding: 4px 3px;
         border-radius: 5px;
-        font-size: clamp(9px, 2.25vw, 11px);
+        font-size: clamp(8px, 1.95vw, 10px);
         line-height: 1.05;
       }
 
@@ -119,8 +123,9 @@
     <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswSC_V1/"><span class="label-full">통합 스케줄 대시보드</span><span class="label-short">스케줄</span></button>
     <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswTEST_V1/channel_Dashboard.html"><span class="label-full">현장평가준비 진척도 대시보드</span><span class="label-short">현장평가</span></button>
     <button class="entry" type="button" data-url="https://1001careerdirector.github.io/greenartswDS_V1/"><span class="label-full">디자인시스템</span><span class="label-short">디자인</span></button>
-    <button class="entry project1" type="button" data-url="./project1-admin.html"><span class="label-full">프로젝트1 성과 리포트(Admin)</span><span class="label-short">성과리포트</span></button>
-    <button class="entry project1" type="button" data-url="https://docs.google.com/spreadsheets/d/1isyMSHjnhS4FmSujLdteEHxoFq3oM1yy44rPNIXZSRI/edit?usp=sharing"><span class="label-full">프로젝트1 훈련생 피드백</span><span class="label-short">피드백</span></button>
+    <button class="entry project1" type="button" data-url="./project1-admin.html"><span class="label-full">프로젝트1 성과 리포트(Admin)</span><span class="label-short">Admin</span></button>
+    <button class="entry project1 student" type="button" data-url="https://greenartsw.github.io/2026biz1/student-report-html/index.html?view=all&amp;theme=white&amp;student=%EA%B9%80O%EC%A0%95"><span class="label-full">프로젝트1 성과 리포트(Student)</span><span class="label-short">Student</span></button>
+    <button class="entry project1 feedback" type="button" data-url="https://docs.google.com/spreadsheets/d/1isyMSHjnhS4FmSujLdteEHxoFq3oM1yy44rPNIXZSRI/edit?usp=sharing"><span class="label-full">프로젝트1 훈련생 피드백</span><span class="label-short">피드백</span></button>
   </nav>
 
   <script>
