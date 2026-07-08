@@ -35,6 +35,7 @@
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
 - The screen is now an entry-button hub instead of an embedded viewer.
 - Each button opens the corresponding GitHub Pages project with `window.open()` only; same-frame fallback is intentionally disabled so the button hub does not navigate away.
+- The field-evaluation button opens `greenartswTEST_V1/channel_Dashboard.html` directly so the Google Drive course-space view appears without depending on the repo root redirect.
 - The Google Sites embed should show only top entry buttons on a transparent background.
 - Project1 buttons use a different color level so they read as a lower-level case/project group.
 - The Project1 performance report button opens a DXPoC-owned admin launcher page (`project1-admin.html`) so the hidden 2026biz1 controls can be handled without editing the public 2026biz1 source before company feedback is complete.
@@ -72,3 +73,4 @@
 - 2026-07-08: Added two Project1 buttons for `2026biz1` performance report and trainee feedback, with a distinct color level.
 - 2026-07-08: Added `project1-admin.html` as a workaround launcher for student/view/theme controls without modifying the public `2026biz1` page.
 - 2026-07-08: Recorded the future plan to formalize the wrapper controls as a native `2026biz1` Admin mode only after company feedback is complete.
+- 2026-07-08: Pointed the field-evaluation entry button directly to `greenartswTEST_V1/channel_Dashboard.html` for the Google Drive course-space dashboard view.
