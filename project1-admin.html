@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>프로젝트1 성과 리포트 Admin</title>
+  <style>
+    :root {
+      --bg: #eef3f8;
+      --panel: rgba(255, 255, 255, 0.92);
+      --ink: #172033;
+      --muted: #607086;
+      --line: rgba(23, 32, 51, 0.14);
+      --blue: #255f9f;
+      --violet: #6b4c9a;
+      --gold: #8a6a2a;
+      --shadow: 0 16px 40px rgba(23, 32, 51, 0.13);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      color: var(--ink);
+      background: var(--bg);
+      font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: minmax(230px, 0.9fr) minmax(520px, 1.4fr) auto;
+      gap: 12px;
+      align-items: center;
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .title {
+      display: grid;
+      gap: 2px;
+      min-width: 0;
+    }
+
+    .title span {
+      color: var(--violet);
+      font-size: 12px;
+      font-weight: 900;
+    }
+
+    .title strong {
+      overflow: hidden;
+      font-size: 18px;
+      font-weight: 950;
+      line-height: 1.2;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    label {
+      display: grid;
+      gap: 4px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    select,
+    button {
+      min-height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #ffffff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    select {
+      width: 100%;
+      padding: 0 10px;
+    }
+
+    .open-button {
+      align-self: end;
+      min-width: 118px;
+      padding: 0 14px;
+      color: #ffffff;
+      background: linear-gradient(135deg, var(--violet), var(--gold));
+      cursor: pointer;
+    }
+
+    .frame-wrap {
+      min-height: 0;
+      padding: 10px;
+    }
+
+    iframe {
+      display: block;
+      width: 100%;
+      height: calc(100vh - 84px);
+      min-height: 620px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    @media (max-width: 900px) {
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+
+      .controls {
+        grid-template-columns: 1fr;
+      }
+
+      .open-button {
+        width: 100%;
+      }
+
+      iframe {
+        height: calc(100vh - 236px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar" aria-label="프로젝트1 리포트 Admin 컨트롤">
+    <div class="title">
+      <span>기맞1차-프로젝트1-(주)더페이퍼</span>
+      <strong>기업 회신용 개인별 성과 리포트(Admin)</strong>
+    </div>
+
+    <div class="controls">
+      <label>
+        훈련생
+        <select id="studentSelect">
+          <option value="김O정">김O정</option>
+        </select>
+      </label>
+      <label>
+        보기
+        <select id="viewSelect">
+          <option value="summary">종합 대시보드</option>
+          <option value="all">전체 보기</option>
+          <option value="page1">개인 성과</option>
+          <option value="page2">기업 회신</option>
+          <option value="both">개인 2P</option>
+          <option value="cover">팀 표지 선정</option>
+        </select>
+      </label>
+      <label>
+        테마
+        <select id="themeSelect">
+          <option value="dark">블랙/다크</option>
+          <option value="white">화이트</option>
+        </select>
+      </label>
+    </div>
+
+    <button class="open-button" id="openButton" type="button">새 창 열기</button>
+  </header>
+
+  <main class="frame-wrap">
+    <iframe id="reportFrame" title="프로젝트1 성과 리포트" src="https://greenartsw.github.io/2026biz1/student-report-html/index.html?view=summary&theme=dark"></iframe>
+  </main>
+
+  <script src="https://greenartsw.github.io/2026biz1/student-report-html/data.js"></script>
+  <script>
+    const baseUrl = "https://greenartsw.github.io/2026biz1/student-report-html/index.html";
+    const defaultStudent = "김O정";
+    const studentSelect = document.querySelector("#studentSelect");
+    const viewSelect = document.querySelector("#viewSelect");
+    const themeSelect = document.querySelector("#themeSelect");
+    const reportFrame = document.querySelector("#reportFrame");
+    const openButton = document.querySelector("#openButton");
+
+    function populateStudents() {
+      const students = Array.isArray(window.REPORT_STUDENTS) ? window.REPORT_STUDENTS : [];
+      if (!students.length) return;
+
+      const preferredStudent = studentSelect.value || defaultStudent;
+      studentSelect.replaceChildren();
+
+      students
+        .filter((student) => student && student.status !== "중탈")
+        .forEach((student) => {
+          const masked = student.maskedName || student.name || "";
+          if (!masked) return;
+
+          const team = student.team && student.team.id ? ` (${student.team.id})` : "";
+          studentSelect.append(new Option(`${masked}${team}`, masked));
+        });
+
+      if ([...studentSelect.options].some((option) => option.value === preferredStudent)) {
+        studentSelect.value = preferredStudent;
+      } else if ([...studentSelect.options].some((option) => option.value === defaultStudent)) {
+        studentSelect.value = defaultStudent;
+      }
+    }
+
+    function buildUrl() {
+      const url = new URL(baseUrl);
+      url.searchParams.set("view", viewSelect.value);
+      url.searchParams.set("theme", themeSelect.value);
+      if (!["summary", "all", "cover"].includes(viewSelect.value)) {
+        url.searchParams.set("student", studentSelect.value);
+      }
+      return url.toString();
+    }
+
+    function updateFrame() {
+      reportFrame.src = buildUrl();
+    }
+
+    populateStudents();
+    updateFrame();
+
+    [studentSelect, viewSelect, themeSelect].forEach((control) => {
+      control.addEventListener("change", updateFrame);
+    });
+
+    openButton.addEventListener("click", () => {
+      const opened = window.open(buildUrl(), "_blank");
+      if (opened) opened.opener = null;
+    });
+  </script>
+</body>
+</html>

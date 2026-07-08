@@ -30,10 +30,14 @@
   1. 통합 스케줄 대시보드
   2. 현장평가준비 진척도 대시보드
   3. 디자인시스템
+  4. 프로젝트1 성과 리포트(Admin)
+  5. 프로젝트1 훈련생 피드백
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
 - The screen is now an entry-button hub instead of an embedded viewer.
 - Each button opens the corresponding GitHub Pages project with `window.open()` only; same-frame fallback is intentionally disabled so the button hub does not navigate away.
-- The Google Sites embed should show only three top entry buttons on a transparent background.
+- The Google Sites embed should show only top entry buttons on a transparent background.
+- Project1 buttons use a different color level so they read as a lower-level case/project group.
+- The Project1 performance report button opens a DXPoC-owned admin launcher page (`project1-admin.html`) so the hidden 2026biz1 controls can be handled without editing the public 2026biz1 source before company feedback is complete.
 
 ## Operating Rule
 
@@ -59,3 +63,5 @@
 - 2026-07-08: Removed visible title, rounded card container, and background; kept only three transparent-embed entry buttons.
 - 2026-07-08: Changed entry links to JavaScript buttons because Google Sites iframe embedding can make `target="_blank"` links unreliable.
 - 2026-07-08: Removed same-frame fallback from button clicks because it could navigate the button hub itself.
+- 2026-07-08: Added two Project1 buttons for `2026biz1` performance report and trainee feedback, with a distinct color level.
+- 2026-07-08: Added `project1-admin.html` as a workaround launcher for student/view/theme controls without modifying the public `2026biz1` page.
