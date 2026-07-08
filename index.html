@@ -35,16 +35,16 @@
 
     body {
       min-height: 100vh;
-      padding: clamp(16px, 3vw, 32px);
+      padding: 8px;
     }
 
     .stage {
-      width: min(1180px, 100%);
-      min-height: calc(100vh - clamp(32px, 6vw, 64px));
+      width: 100%;
+      min-height: calc(100vh - 16px);
       margin: 0 auto;
       display: grid;
       grid-template-rows: auto 1fr;
-      gap: 14px;
+      gap: 8px;
     }
 
     .topbar,
@@ -57,17 +57,17 @@
     }
 
     .topbar {
-      border-radius: 8px;
-      padding: 16px;
+      border-radius: 6px;
+      padding: 10px 12px;
       display: grid;
-      grid-template-columns: minmax(220px, 1fr) auto;
-      gap: 14px;
+      grid-template-columns: minmax(200px, 0.7fr) minmax(420px, 1.3fr);
+      gap: 10px;
       align-items: center;
     }
 
     .eyebrow {
-      margin: 0 0 4px;
-      font-size: 12px;
+      margin: 0 0 2px;
+      font-size: 11px;
       font-weight: 800;
       letter-spacing: 0;
       color: var(--green);
@@ -75,8 +75,8 @@
 
     h1 {
       margin: 0;
-      font-size: clamp(22px, 3vw, 36px);
-      line-height: 1.18;
+      font-size: clamp(18px, 2.2vw, 26px);
+      line-height: 1.12;
       letter-spacing: 0;
     }
 
@@ -89,21 +89,21 @@
 
     .actions {
       display: grid;
-      grid-template-columns: repeat(3, minmax(120px, 1fr));
-      gap: 8px;
-      min-width: min(520px, 100%);
+      grid-template-columns: repeat(3, minmax(130px, 1fr));
+      gap: 6px;
+      min-width: 0;
     }
 
     button {
       appearance: none;
-      min-height: 46px;
-      padding: 10px 12px;
+      min-height: 38px;
+      padding: 7px 10px;
       border: 1px solid var(--line);
-      border-radius: 8px;
+      border-radius: 6px;
       color: var(--ink);
       background: rgba(255, 255, 255, 0.66);
       font: inherit;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 800;
       letter-spacing: 0;
       line-height: 1.35;
@@ -126,15 +126,17 @@
     .viewer {
       position: relative;
       overflow: hidden;
-      border-radius: 8px;
-      min-height: 620px;
+      border-radius: 6px;
+      height: calc(100vh - 82px);
+      min-height: 500px;
       display: grid;
       grid-template-rows: 1fr;
     }
 
     .frame-wrap {
       position: relative;
-      min-height: 560px;
+      height: 100%;
+      min-height: 0;
       background: rgba(255, 255, 255, 0.5);
     }
 
@@ -142,7 +144,7 @@
       display: block;
       width: 100%;
       height: 100%;
-      min-height: 560px;
+      min-height: 0;
       border: 0;
       background: #ffffff;
     }
@@ -172,11 +174,11 @@
 
     @media (max-width: 560px) {
       body {
-        padding: 10px;
+        padding: 6px;
       }
 
       .stage {
-        min-height: calc(100vh - 20px);
+        min-height: calc(100vh - 12px);
       }
 
       .actions {
@@ -186,7 +188,7 @@
       .viewer,
       .frame-wrap,
       iframe {
-        min-height: 520px;
+        min-height: 500px;
       }
 
     }
