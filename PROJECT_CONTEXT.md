@@ -32,7 +32,7 @@
   3. 디자인시스템
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
 - The screen is now an entry-button hub instead of an embedded viewer.
-- Each button opens the corresponding GitHub Pages project in a new tab.
+- Each button opens the corresponding GitHub Pages project with `window.open()`, with same-frame fallback if the popup is blocked.
 - The Google Sites embed should show only three top entry buttons on a transparent background.
 
 ## Operating Rule
@@ -57,3 +57,4 @@
 - 2026-07-08: Changed the DXPoC slide screen from nested iframe demos to three project entry buttons.
 - 2026-07-08: Updated the external concept copy to `AI 전환기, 교육운영을 다시 설계하다`.
 - 2026-07-08: Removed visible title, rounded card container, and background; kept only three transparent-embed entry buttons.
+- 2026-07-08: Changed entry links to JavaScript buttons because Google Sites iframe embedding can make `target="_blank"` links unreliable.
