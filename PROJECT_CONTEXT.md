@@ -3,7 +3,7 @@
 ## Project Role
 
 - Project: `greenartswDXPoC_V1`
-- External title: `교육운영 DX/AX PoC`
+- External title: `AI 전환기, 교육운영을 다시 설계하다`
 - Role: Google Sites에서 접근하는 교육운영 DX/AX PoC 허브
 - Purpose: Google Sites + GitHub Pages + Google Drive 연결 구조를 실험하고, 하위 PoC 화면을 한 곳에서 시연한다.
 
@@ -25,7 +25,8 @@
 ## Current Screen Decisions
 
 - The DXPoC screen is a single `index.html` page for GitHub Pages.
-- The visible title is `교육운영 DX/AX PoC`.
+- The visible title is `AI 전환기, 교육운영을 다시 설계하다`.
+- The visible subtitle is `그린컴퓨터아카데미 수원 교육운영 DX/AX PoC`.
 - The small top label is `그린컴퓨터아카데미 수원`.
 - Button order is:
   1. 통합 스케줄 대시보드
@@ -55,3 +56,4 @@
 - 2026-07-08: Embedded the DXPoC GitHub Pages URL in Google Sites and published the site.
 - 2026-07-08: Compressed the DXPoC screen for Google Sites iframe embedding.
 - 2026-07-08: Changed the DXPoC slide screen from nested iframe demos to three project entry buttons.
+- 2026-07-08: Updated the external concept copy to `AI 전환기, 교육운영을 다시 설계하다`.
