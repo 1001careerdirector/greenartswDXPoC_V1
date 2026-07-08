@@ -29,16 +29,17 @@
 - Button order is:
   1. 통합 스케줄 대시보드
   2. 현장평가준비 진척도 대시보드
-  3. 디자인시스템
-  4. 프로젝트1 성과 리포트(Admin)
-  5. 프로젝트1 성과 리포트(Student)
-  6. 프로젝트1 훈련생 피드백
+  3. 프로젝트1 성과 리포트(Admin)
+  4. 프로젝트1 성과 리포트(Student)
+  5. 프로젝트1 훈련생 피드백
+  6. 디자인시스템
 - Explanatory text, URL display, and new-window button were removed to keep the embed screen clean.
 - The screen is now an entry-button hub instead of an embedded viewer.
 - Each button opens the corresponding GitHub Pages project with `window.open()` only; same-frame fallback is intentionally disabled so the button hub does not navigate away.
 - The field-evaluation button opens `greenartswTEST_V1/channel_Dashboard.html` directly so the Google Drive course-space view appears without depending on the repo root redirect.
 - The Google Sites embed should show only top entry buttons on a transparent background.
 - Google Sites controls the outer iframe height; the GitHub Pages child cannot reliably auto-resize the parent iframe. Keep the DXPoC hub as a compact one-row button strip and avoid breakpoint rules that turn the buttons into tall vertical stacks.
+- Button color groups are role-based: green tone for schedule/field-evaluation operations, purple tone for Project1 Admin/Student/feedback, and orange tone for the design system.
 - Project1 buttons use a different color level so they read as a lower-level case/project group.
 - The Project1 performance report button opens a DXPoC-owned admin launcher page (`project1-admin.html`) so the hidden 2026biz1 controls can be handled without editing the public 2026biz1 source before company feedback is complete.
 - The Project1 Student performance report button opens the public `2026biz1/student-report-html` source directly as a student-facing score/report prototype.
@@ -79,3 +80,4 @@
 - 2026-07-08: Pointed the field-evaluation entry button directly to `greenartswTEST_V1/channel_Dashboard.html` for the Google Drive course-space dashboard view.
 - 2026-07-08: Adjusted the DXPoC hub button strip for Google Sites iframe embedding: removed the tall one-column mobile breakpoint, kept all hub buttons visible on small screens, and switched to short labels instead of horizontal scrolling.
 - 2026-07-09: Added `프로젝트1 성과 리포트(Student)` as a sixth hub button using the existing `2026biz1/student-report-html` source for a student-facing report prototype.
+- 2026-07-09: Reordered the hub so `디자인시스템` is last, and split button tones into green operations, purple Project1, and orange design groups.
