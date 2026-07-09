@@ -26,7 +26,7 @@
       min-height: 0;
       background: transparent;
       font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", Arial, sans-serif;
-      overflow: hidden;
+      overflow: visible;
     }
 
     body {
@@ -38,14 +38,14 @@
       display: grid;
       grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: clamp(4px, 0.8vw, 8px);
-      overflow: hidden;
+      overflow: visible;
     }
 
     .entry {
       appearance: none;
       min-width: 0;
       width: 100%;
-      min-height: min(clamp(38px, 5.6vw, 56px), calc(100dvh - 2px));
+      min-height: clamp(38px, 5.6vw, 56px);
       padding: clamp(6px, 1vw, 10px) clamp(6px, 1.4vw, 14px);
       border: 1px solid var(--line);
       border-radius: 6px;
@@ -101,18 +101,18 @@
       background: linear-gradient(135deg, #64547e, #844f75);
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 960px) {
       .entry-grid {
-        grid-template-columns: repeat(6, minmax(0, 1fr));
-        gap: 3px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 5px;
       }
 
       .entry {
-        min-height: min(34px, calc(100dvh - 2px));
-        padding: 4px 3px;
+        min-height: 38px;
+        padding: 6px 5px;
         border-radius: 5px;
-        font-size: clamp(8px, 1.95vw, 10px);
-        line-height: 1.05;
+        font-size: clamp(10px, 2.3vw, 13px);
+        line-height: 1.12;
       }
 
       .label-full {
@@ -121,6 +121,17 @@
 
       .label-short {
         display: inline;
+      }
+    }
+
+    @media (max-width: 430px) {
+      .entry-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .entry {
+        min-height: 36px;
+        font-size: 11px;
       }
     }
   </style>
